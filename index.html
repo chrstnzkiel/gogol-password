@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #222;
+            color: white;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 250px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: gold;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: orange;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .hidden-link {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: green;
+        }
+        .hidden-link a {
+            color: gold;
+            text-decoration: none;
+        }
+        .hidden-link a:hover {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Shh... It's a secret.</h1>
+        <p>The last piece of the puzzle is in your hands! Type the password below and uncover the hidden treasures!</p>
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="checkPassword()">Begin</button>
+        <p id="message"></p>
+        <div id="link-container" class="hidden-link">
+            <p>Congratulations! You've unlocked the secret portal. Welcome to the exclusive content. Dive in and explore what’s hidden just for you.</p>
+            <a href="https://sites.google.com/view/djmoasdnasdsa/hi/home" target="_blank">Go Inside the Portal</a>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+            const linkContainer = document.getElementById("link-container");
+
+            if (password === "UnlockTheMagic123!") {
+                message.style.color = "green";
+                message.innerText = "Bingo! You can now access the secret portal";
+                linkContainer.style.display = "block"; 
+            } else {
+                message.style.color = "red";
+                message.innerText = "Oops! That password didn't quite do the trick. Try again, detective! The secrets are still waiting to be unlocked.";
+            }
+        }
+    </script>
+</body>
+</html>
