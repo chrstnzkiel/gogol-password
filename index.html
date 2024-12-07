@@ -76,7 +76,7 @@
         <p id="message"></p>
         <div id="link-container" class="hidden-link">
             <p>Congratulations! You've unlocked the secret portal. Welcome to the exclusive content. Dive in and explore what’s hidden just for you.</p>
-            <a href="https://sites.google.com/view/djmoasdnasdsa/hi/home" target="_blank">Go Inside the Portal</a>
+            <a id="secret-link" href="#" target="_blank">Go Inside the Portal</a>
         </div>
     </div>
     
@@ -84,28 +84,31 @@
 
     <script>
     document.addEventListener('contextmenu', (e) => e.preventDefault());
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'F12' || 
-                (e.ctrlKey && e.shiftKey && e.key === 'I') || 
-                (e.ctrlKey && e.key === 'U')) {
-                e.preventDefault();
-            }
-        });
-
-        function checkPassword() {
-            const password = document.getElementById("password").value;
-            const message = document.getElementById("message");
-            const linkContainer = document.getElementById("link-container");
-
-            if (password === "UnlockTheMagic123!") {
-                message.style.color = "green";
-                message.innerText = "Bingo! You can now access the secret portal";
-                linkContainer.style.display = "block"; 
-            } else {
-                message.style.color = "red";
-                message.innerText = "Oops! That password didn't quite do the trick. Try again, detective! The secrets are still waiting to be unlocked.";
-            }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+            (e.ctrlKey && e.key === 'U')) {
+            e.preventDefault();
         }
+    });
+
+    function checkPassword() {
+        const password = document.getElementById("password").value;
+        const message = document.getElementById("message");
+        const linkContainer = document.getElementById("link-container");
+        const secretLink = document.getElementById("secret-link");
+
+        if (password === "UnlockTheMagic123!") {
+            message.style.color = "green";
+            message.innerText = "Bingo! You can now access the secret portal";
+            linkContainer.style.display = "block";
+            // Dynamically set the link URL
+            secretLink.href = atob("aHR0cHM6Ly9zaXRlcy5nb29nbGUuY29tL3ZpZXcvY2FydmFqYWwtcG9ydGZvbGlvL29uZS1waWVjZS95b3UtaGF2ZS1mb3VuZC10aGUtY3JlYXN1cmUvc291cmNlLWNvZGVz");
+        } else {
+            message.style.color = "red";
+            message.innerText = "Oops! That password didn't quite do the trick. Try again, detective! The secrets are still waiting to be unlocked.";
+        }
+    }
     </script>
 </body>
 </html>
